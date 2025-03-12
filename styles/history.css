@@ -1,0 +1,35 @@
+.history {   
+    background-color: var(--color-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 -.5rem 1rem var(--color-black-dark);
+}
+
+.history__inner {
+    text-align: center;
+}
+
+.history__form {
+    width: auto;
+    background-color: var(--color-black-dark);
+    text-align: start;
+    background-color: var(--color-black-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 0 .6rem;
+    border-radius: 1rem;
+    padding: .85rem;
+}
+
+.datepicker__input::-webkit-calendar-picker-indicator {
+    filter: brightness(0) saturate(100%) invert(79%) sepia(36%) saturate(5198%) hue-rotate(342deg) brightness(87%) contrast(98%);
+}
+
+.history__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}

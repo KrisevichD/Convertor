@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/history.css" />
+    <script src="./scripts/main.js" type="module"></script>
+</head>
+<body>
+    <header class="header">header</header>
+    <main class="main">
+        <section class="convertor wrapper" data-js-convertor>
+        <h1>Конвертация валют онлайн по курсу НБ РБ</h1>
+            <div class="convertor__inner container">
+                <h2 class="convertor__title">онлайн конвертер</h2>
+                <form action="" name="convertor" class="convertor__form form" data-js-convertor-form>
+                    <h3>начальная сумма</h3>
+                    <label class="form__label" for="convertor-currency">валюта</label>
+                    <label class="form__label" for="convertor-amount">количество</label>
+                        <div class="form__select currency-selector" data-js-convertor-currency-select>
+                            <img src="./images/usd.svg" alt="usd" class="form__select-icon" height="32" width="32"/>
+                            <select 
+                                id="convertor-currency"
+                                name="currency" 
+                                class="form__original-select" 
+                                
+                            >
+                                <option value="usd" data-code-name="USD" label="USD">USD американский доллар</option>
+                                <option value="byn" data-code-name="BYN" >BYN белорусский рубль</option>
+                                <option value="eur" data-code-name="EUR" >EUR евро</option>
+                                <option value="rub" data-code-name="RUB" >RUB российский рубль</option>
+                                <option value="cny" data-code-name="CNY" >CNY китайский юань</option>
+                            </select>
+                        </div>
+                        <input 
+                            type="number" 
+                            id="convertor-amount"
+                            name="amount" 
+                            class="form__input" 
+                            placeholder="0"
+                            data-js-convertor-amount-input
+                        >
+                </form>
+                <div class="convertor__outcome currencies">
+                    <h3>конвертированная сумма</h3>
+                    <dl class="currencies__list" data-js-convertor-outcome-list>
+                        <div 
+                            class="currencies__item visually-hidden" 
+                            data-currency-name="usd" 
+                            data-js-convertor-outcome-item="usd"
+                        >
+                            <img src="./images/usd.svg" alt="usd" class="currencies__icon" height="32" width="32"/>
+                            <dt class="currencies__name">американский доллар</dt>
+                            <dt class="currencies__code-name">USD</dt>
+                            <dd 
+                                class="currencies__value" 
+                                data-currency-name="usd" 
+                                data-js-convertor-outcome-value
+                            >
+                                0
+                            </dd>
+                        </div>
+                        <div class="currencies__item" data-js-convertor-outcome-item="byn">
+                            <img src="./images/byn.svg" alt="byn" class="currencies__icon" height="32" width="32"/>
+                            <dt class="currencies__name">белорусский рубль</dt>
+                            <dt class="currencies__code-name">BYN</dt>
+                            <dd 
+                                class="currencies__value" 
+                                data-currency-name="byn" 
+                                data-js-convertor-outcome-value
+                            >
+                                0
+                            </dd>
+                        </div>
+                        <div class="currencies__item" data-js-convertor-outcome-item="eur">
+                            <img src="./images/eur.svg" alt="eur" class="currencies__icon" height="32" width="32"/>
+                            <dt class="currencies__name">евро</dt>
+                            <dt class="currencies__code-name">EUR</dt>
+                            <dd 
+                                class="currencies__value" 
+                                data-currency-name="eur" 
+                                data-js-convertor-outcome-value
+                            >
+                                0
+                            </dd>
+                        </div>
+                        <div class="currencies__item" data-js-convertor-outcome-item="rub">
+                            <img src="./images/rub.svg" alt="rub" class="currencies__icon" height="32" width="32"/>
+                            <dt class="currencies__name">российский рубль</dt>
+                            <dt class="currencies__code-name">RUB</dt>
+                            <dd 
+                                class="currencies__value" 
+                                data-currency-name="rub" 
+                                data-js-convertor-outcome-value
+                            >
+                                0
+                            </dd>
+                        </div>
+                        <div class="currencies__item" data-js-convertor-outcome-item="cny">
+                            <img src="./images/cny.svg" alt="cny" class="currencies__icon" height="32" width="32"/>
+                            <dt class="currencies__name">китайский юань</dt>
+                            <dt class="currencies__code-name">CNY</dt>
+                            <dd 
+                                class="currencies__value" 
+                                data-currency-name="cny" 
+                                data-js-convertor-outcome-value
+                            >
+                                0
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+        <section class="history wrapper">
+            <div class="history__inner container">
+                <h2>История курсов валют</h2>
+                <form class="history__form form">
+                    <label for="history-currency" class="form__label">валюта</label>
+                    <label for="history-date" class="form__label">дата</label>
+                    <div class="form__select currency-selector" data-js-history-currency-select>
+                        <img src="./images/usd.svg" alt="usd" class="form__select-icon" height="32" width="32"/>
+                        <select 
+                            id="history-currency"
+                            name="currency" 
+                            class="form__original-select" 
+                        >
+                            <option value="usd" data-code-name="USD" label="USD">USD американский доллар</option>
+                            <option value="byn" data-code-name="BYN" >BYN белорусский рубль</option>
+                            <option value="eur" data-code-name="EUR" >EUR евро</option>
+                            <option value="rub" data-code-name="RUB" >RUB российский рубль</option>
+                            <option value="cny" data-code-name="CNY" >CNY китайский юань</option>
+                        </select>
+                    </div>
+                    <div class="datepicker">
+                        <input type="date" id="history-date" class="datepicker__input form__input" data-js-history-date-input/>
+                    </div>
+                </form>
+                <div class="history__body">
+                    <div class="history__outcome currencies">
+                        <h3>курсы за выбранную дату</h3>
+                        <dl class="currencies__list">
+                            <div class="currencies__item visually-hidden" data-js-history-outcome-item="usd">
+                                <img src="./images/usd.svg" alt="usd" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">американский доллар</dt>
+                                <dt class="currencies__code-name">USD</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="usd" 
+                                    data-js-history-outcome-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="byn">
+                                <img src="./images/byn.svg" alt="byn" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">белорусский рубль</dt>
+                                <dt class="currencies__code-name">BYN</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="byn" 
+                                    data-js-history-outcome-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="eur">
+                                <img src="./images/eur.svg" alt="eur" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">евро</dt>
+                                <dt class="currencies__code-name">EUR</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="eur" 
+                                    data-js-history-outcome-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="rub">
+                                <img src="./images/rub.svg" alt="rub" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">российский рубль</dt>
+                                <dt class="currencies__code-name">RUB</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="rub" 
+                                    data-js-history-outcome-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="cny">
+                                <img src="./images/cny.svg" alt="cny" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">китайский юань</dt>
+                                <dt class="currencies__code-name">CNY</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="cny" 
+                                    data-js-history-outcome-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="history__today-rates currencies">
+                        <h3>курсы сегодня</h3>
+                        <dl class="currencies__list">
+                            <div class="currencies__item visually-hidden" data-js-history-outcome-item="usd">
+                                <img src="./images/usd.svg" alt="usd" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">американский доллар</dt>
+                                <dt class="currencies__code-name">USD</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="usd" 
+                                    data-js-history-rate-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="byn">
+                                <img src="./images/byn.svg" alt="byn" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">белорусский рубль</dt>
+                                <dt class="currencies__code-name">BYN</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="byn" 
+                                    data-js-history-rate-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="eur">
+                                <img src="./images/eur.svg" alt="eur" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">евро</dt>
+                                <dt class="currencies__code-name">EUR</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="eur" 
+                                    data-js-history-rate-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="rub">
+                                <img src="./images/rub.svg" alt="rub" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">российский рубль</dt>
+                                <dt class="currencies__code-name">RUB</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="rub" 
+                                    data-js-history-rate-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                            <div class="currencies__item" data-js-history-outcome-item="cny">
+                                <img src="./images/cny.svg" alt="cny" class="currencies__icon" height="32" width="32"/>
+                                <dt class="currencies__name">китайский юань</dt>
+                                <dt class="currencies__code-name">CNY</dt>
+                                <dd 
+                                    class="currencies__value" 
+                                    data-currency-name="cny" 
+                                    data-js-history-rate-value
+                                >
+                                    0
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__text">
+            made by <a href="" class="footer__link link">Denis Krisevich</a>
+        </div>
+    </footer>
+</body>
+</html>
