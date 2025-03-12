@@ -32,9 +32,9 @@ export const RATES = {
 }
 
 export const FLAG_URLS = {
-    usd: '../images/usd.svg',
-    byn: '../images/byn.svg',
-    rub: '../images/rub.svg',
-    eur: '../images/eur.svg',
-    cny: '../images/cny.svg',
+    usd: '/images/usd.svg',
+    byn: '/images/byn.svg',
+    rub: '/images/rub.svg',
+    eur: '/images/eur.svg',
+    cny: '/images/cny.svg',
 }
