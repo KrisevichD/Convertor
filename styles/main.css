@@ -11,6 +11,10 @@
     --gradient: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background-color: var(--color-black);
@@ -29,6 +33,10 @@ body {
 
 .container {
     width: 40rem;
+}
+
+a {
+    color: var(--color-orange-light)
 }
 
 h1 {
@@ -50,8 +58,31 @@ dd, dt, dl {
 }
 
 .header {
-    height: 100px;
+    min-height: 5rem;
+    background-color: var(--color-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.header__menu a {
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 1.2rem;
+}
+
+.footer {
     background-color: var(--color-black-dark);
+    min-height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .convertor {
@@ -216,9 +247,24 @@ input[type="number"] {
     text-align: start;
 }
 
+.form__block {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__message {
+    color: red;
+    font-size: 1rem;
+}
+
 @media (max-width: 50rem) {
     .container {
         width: auto;
+    }
+    .convertor__form {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1rem;
     }
     .currencies__list{
         grid-template-columns: 1fr;

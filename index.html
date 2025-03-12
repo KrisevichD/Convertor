@@ -10,16 +10,21 @@
     <script src="./scripts/main.js" type="module"></script>
 </head>
 <body>
-    <header class="header">header</header>
+    <header class="header">
+        <nav class="header__menu">
+            <a href="#convertor-section" class="header__link">конвертор</a>
+            <a href="#history-section" class="header__link">история курсов</a>
+        </nav>
+    </header>
     <main class="main">
-        <section class="convertor wrapper" data-js-convertor>
+        <section id="convertor-section" class="convertor wrapper" data-js-convertor>
         <h1>Конвертация валют онлайн по курсу НБ РБ</h1>
             <div class="convertor__inner container">
                 <h2 class="convertor__title">онлайн конвертер</h2>
                 <form action="" name="convertor" class="convertor__form form" data-js-convertor-form>
                     <h3>начальная сумма</h3>
-                    <label class="form__label" for="convertor-currency">валюта</label>
-                    <label class="form__label" for="convertor-amount">количество</label>
+                    <div class="form__block">
+                        <label class="form__label" for="convertor-currency">валюта</label>
                         <div class="form__select currency-selector" data-js-convertor-currency-select>
                             <img src="./images/usd.svg" alt="usd" class="form__select-icon" height="32" width="32"/>
                             <select 
@@ -35,6 +40,9 @@
                                 <option value="cny" data-code-name="CNY" >CNY китайский юань</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="form__block">
+                        <label class="form__label" for="convertor-amount">количество</label>
                         <input 
                             type="number" 
                             id="convertor-amount"
@@ -43,6 +51,8 @@
                             placeholder="0"
                             data-js-convertor-amount-input
                         >
+                    </div>
+
                 </form>
                 <div class="convertor__outcome currencies">
                     <h3>конвертированная сумма</h3>
@@ -115,29 +125,36 @@
                 </div>
             </div>
         </section>
-        <section class="history wrapper">
+        <section id="history-section" class="history wrapper">
             <div class="history__inner container">
                 <h2>История курсов валют</h2>
                 <form class="history__form form">
-                    <label for="history-currency" class="form__label">валюта</label>
-                    <label for="history-date" class="form__label">дата</label>
-                    <div class="form__select currency-selector" data-js-history-currency-select>
-                        <img src="./images/usd.svg" alt="usd" class="form__select-icon" height="32" width="32"/>
-                        <select 
-                            id="history-currency"
-                            name="currency" 
-                            class="form__original-select" 
-                        >
-                            <option value="usd" data-code-name="USD" label="USD">USD американский доллар</option>
-                            <option value="byn" data-code-name="BYN" >BYN белорусский рубль</option>
-                            <option value="eur" data-code-name="EUR" >EUR евро</option>
-                            <option value="rub" data-code-name="RUB" >RUB российский рубль</option>
-                            <option value="cny" data-code-name="CNY" >CNY китайский юань</option>
-                        </select>
+                    <div class="form__block">
+                        <label for="history-currency" class="form__label">валюта</label>
+                        <div class="form__select currency-selector" data-js-history-currency-select>
+                            <img src="./images/usd.svg" alt="usd" class="form__select-icon" height="32" width="32"/>
+                            <select 
+                                id="history-currency"
+                                name="currency" 
+                                class="form__original-select" 
+                            >
+                                <option value="usd" data-code-name="USD" label="USD">USD американский доллар</option>
+                                <option value="byn" data-code-name="BYN" >BYN белорусский рубль</option>
+                                <option value="eur" data-code-name="EUR" >EUR евро</option>
+                                <option value="rub" data-code-name="RUB" >RUB российский рубль</option>
+                                <option value="cny" data-code-name="CNY" >CNY китайский юань</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="datepicker">
-                        <input type="date" id="history-date" class="datepicker__input form__input" data-js-history-date-input/>
+                    <div class="form__block">
+                        <label for="history-date" class="form__label">дата</label>
+                        <div class="datepicker">
+                            <input type="date" id="history-date" class="datepicker__input form__input" data-js-history-date-input/>
+                        </div>
                     </div>
+                    <p class="form__message" data-js-history-message>
+                        
+                    </p>
                 </form>
                 <div class="history__body">
                     <div class="history__outcome currencies">
@@ -276,7 +293,7 @@
     </main>
     <footer class="footer">
         <div class="footer__text">
-            made by <a href="" class="footer__link link">Denis Krisevich</a>
+            made by <a href="https://github.com/KrisevichD" class="footer__link link">Denis Krisevich</a>
         </div>
     </footer>
 </body>

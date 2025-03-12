@@ -1,5 +1,5 @@
 import CurrencySelector from "./CurrencySelector.js";
-import { RATES } from "./constants.js";
+import { ERRORS, RATES } from "./constants.js";
 
 class History {
     historyOffsets = { 
@@ -16,7 +16,8 @@ class History {
         outcomeItem: '[data-js-history-outcome-item]',
         outcomeValue: '[data-js-history-outcome-value]',
         rateItem: '[data-js-history-rate-item]',
-        rateValue: '[data-js-history-rate-value]'
+        rateValue: '[data-js-history-rate-value]',
+        message: '[data-js-history-message]'
     }
 
     stateClasses = {
@@ -35,6 +36,7 @@ class History {
         this.rateItemElements = document.querySelectorAll(this.selectors.rateItem);
         this.outcomeValueElements = document.querySelectorAll(this.selectors.outcomeValue);
         this.rateValueElements = document.querySelectorAll(this.selectors.rateValue);
+        this.messageElement = document.querySelector(this.selectors.message);
         this.initHistory();
         this.bindEvents();
     }
@@ -67,7 +69,10 @@ class History {
 
     changeDate = () => {
         if (this.dateInputElement.value > this.getTodayDateString()) {
-            this.initTodayDate();
+            this.messageElement.innerHTML = ERRORS.futureDate;
+            this.dateInputElement.value = this.getTodayDateString();
+        } else {
+            this.messageElement.innerHTML = '';
         }
         this.fillOutcomeValues();
     }
@@ -82,7 +87,9 @@ class History {
 
     fillOutcomeValues() {
         let dateOffsetIndex = this.getDateDifference(this.dateInputElement.valueAsDate, new Date());  
-        if (dateOffsetIndex > 13) dateOffsetIndex = 13;
+        if (dateOffsetIndex > 13) {
+            dateOffsetIndex = 13;
+        }
         let rates = RATES[this.currencySelect.currentCurrency];
         [...this.outcomeValueElements].forEach(element => {
             let currency = element.getAttribute(this.dataAttributes.currencyName)
@@ -92,6 +99,7 @@ class History {
     }
 
     getDateDifference(date1, date2) {
+        if (!date1 || !date2) return 0
         let differenceInTime = date2.getTime() - date1.getTime();
         return Math.round(differenceInTime / (1000 * 3600 * 24))
     }

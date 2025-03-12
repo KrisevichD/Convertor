@@ -33,3 +33,22 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
+
+.history__form .form__message {
+    grid-column: -1 / 1;
+}
+
+.history__form {
+    text-align: center;
+}
+
+
+@media (max-width: 50rem) {
+    .history__body {    
+        grid-template-columns: 1fr;
+    }
+    .history__form {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
