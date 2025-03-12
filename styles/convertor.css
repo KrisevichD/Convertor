@@ -74,3 +74,20 @@
     word-break: break-all;
     text-align: start;
 }
+
+@media (max-width: 50rem) {
+    .container {
+        width: 90%;
+    }
+    .convertor__form {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1rem;
+    }
+    .currencies__list{
+        grid-template-columns: 1fr;
+    }
+    .convertor__form input {
+        width: 11rem;
+    }
+}

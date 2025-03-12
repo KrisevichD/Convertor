@@ -57,6 +57,11 @@ dd, dt, dl {
     margin: 0;
 }
 
+header {
+    box-shadow: 0 .5rem 1rem var(--color-black-dark);
+    position: relative;
+}
+
 .header {
     min-height: 5rem;
     background-color: var(--color-black);
@@ -78,11 +83,13 @@ dd, dt, dl {
 }
 
 .footer {
+    margin-top: 5rem;
     background-color: var(--color-black-dark);
     min-height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0rem -.5rem 1rem var(--color-black-dark);
 }
 
 input::-webkit-outer-spin-button,
@@ -182,16 +189,3 @@ input[type="number"] {
     font-size: 1rem;
 }
 
-@media (max-width: 50rem) {
-    .container {
-        width: auto;
-    }
-    .convertor__form {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 1rem;
-    }
-    .currencies__list{
-        grid-template-columns: 1fr;
-    }
-}
